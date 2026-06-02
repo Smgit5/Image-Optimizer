@@ -62,63 +62,38 @@ function canvasToBlob(img, width, height, quality) {
     });
 }
 
-async function compressImageToTargetKB(file, targetKB, options = {}) {
-    const {
-        maxIterations = 15,
-        minQuality = 0.1,
-        maxQuality = 0.95,
-        scaleStep = 0.9
-    } = options;
+async function compressImageToTargetKB(file, targetKB) {
 
     const img = await loadImage(file);
-
-    let width = img.width;
-    let height = img.height;
 
     let bestBlob = null;
     let bestSize = 0;
 
-    const safeTarget = targetKB * 0.98;
+    let low = 0.05;
+    let high = 0.95;
 
-    for (let scaleRound = 0; scaleRound < 5; scaleRound++) {
+    for (let i = 0; i < 20; i++) {
 
-        let low = minQuality;
-        let high = maxQuality;
+        const quality = (low + high) / 2;
 
-        for (let i = 0; i < maxIterations; i++) {
+        const blob = await canvasToBlob(
+            img,
+            img.width,
+            img.height,
+            quality
+        );
 
-            const quality = (low + high) / 2;
+        const sizeKB = blob.size / 1024;
 
-            const blob = await canvasToBlob(
-                img,
-                width,
-                height,
-                quality
-            );
-
-            const sizeKB = blob.size / 1024;
-
-            if (sizeKB <= safeTarget && sizeKB > bestSize) {
-                bestBlob = blob;
-                bestSize = sizeKB;
-            }
-
-            if (sizeKB > targetKB) {
-                high = quality;
-            } else {
-                low = quality;
-            }
+        if (sizeKB <= targetKB && sizeKB > bestSize) {
+            bestBlob = blob;
+            bestSize = sizeKB;
         }
 
-        if (bestBlob && bestSize >= safeTarget) {
-            return bestBlob;
-        }
-
-        width = Math.floor(width * scaleStep);
-        height = Math.floor(height * scaleStep);
-
-        if (width < 100 || height < 100) {
-            break;
+        if (sizeKB > targetKB) {
+            high = quality;
+        } else {
+            low = quality;
         }
     }
 
