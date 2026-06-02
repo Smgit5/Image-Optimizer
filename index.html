@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compress your images online to a target KB size for free. Optimize photos for web, passport, and forms easily.">
+    <title>Image Size Compressor (KB Target Tool)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Image Size Compressor (KB Target Tool)</h1>
+        <button id="theme-toggle" class="button" aria-label="Toggle dark and light theme">
+            Dark
+        </button>
+    </header>
+
+    <main class="card">
+
+        <!-- Upload Area -->
+        <div class="upload-section">
+
+            <div class="drop-area" id="drop-area">
+                <p>Drag & Drop Image Here</p>
+                <p>or</p>
+
+                <input
+                        type="file"
+                        id="image-input"
+                        accept="image/*"
+                >
+
+                <label for="image-input" class="button">
+                    Choose File
+                </label>
+            </div>
+
+            <p class="privacy-note">
+                🔒 Images never leave your device. No uploads. No storage.
+            </p>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-section">
+
+            <div class="form-group">
+                <label for="target-size">Target Size (KB)</label>
+
+                <select id="target-size">
+                    <option value="20">20 KB</option>
+                    <option value="50" selected>50 KB</option>
+                    <option value="100">100 KB</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+
+            <div class="form-group custom-target-input" style="display:none;">
+                <label for="custom-kb">Custom Size (KB)</label>
+                <input
+                        type="number"
+                        id="custom-kb"
+                        min="1"
+                        value="50"
+                >
+            </div>
+
+            <button id="optimize-button" class="button primary">
+                Optimize Image
+            </button>
+
+        </div>
+
+        <!-- Preview Area -->
+        <div class="preview-section">
+
+            <div class="image-preview">
+                <h3>Original Image</h3>
+
+                <img
+                        id="original-preview"
+                        alt="Original Image Preview"
+                        style="display:none;"
+                >
+
+                <p id="original-size"></p>
+            </div>
+
+            <div class="image-preview">
+                <h3>Compressed Image</h3>
+
+                <img
+                        id="compressed-preview"
+                        alt="Compressed Image Preview"
+                        style="display:none;"
+                >
+
+                <p id="compressed-size"></p>
+            </div>
+
+        </div>
+
+        <!-- Results -->
+        <div class="results-section">
+
+            <p id="status-message"></p>
+
+            <button
+                    id="download-button"
+                    class="button"
+                    style="display:none;"
+            >
+                Download Result
+            </button>
+
+        </div>
+
+    </main>
+
+    <!-- Privacy Section -->
+    <section class="info-section">
+
+        <h2>Privacy</h2>
+
+        <p>
+            Your images are processed entirely inside your browser using
+            JavaScript. No files are uploaded to any server, and no images
+            are stored by this website.
+        </p>
+
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Are my images uploaded anywhere?</h3>
+            <p>
+                No. Image compression happens completely inside your browser.
+                Your files never leave your device.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Will image quality be reduced?</h3>
+            <p>
+                The tool reduces file size while attempting to preserve as much
+                visual quality as possible.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I choose a custom target size?</h3>
+            <p>
+                Yes. Select "Custom" and enter any target size in KB.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Use Cases -->
+    <section class="info-section">
+
+        <h2>Common Use Cases</h2>
+
+        <ul>
+            <li><strong>Passport Photos</strong> – Meet government upload size requirements.</li>
+            <li><strong>Job Applications</strong> – Reduce photo size before uploading.</li>
+            <li><strong>Online Forms</strong> – Fit within strict file-size limits.</li>
+            <li><strong>Website Optimization</strong> – Improve page loading speed.</li>
+            <li><strong>Email Attachments</strong> – Send smaller files quickly.</li>
+        </ul>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Image Size Optimizer</p>
+    </footer>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

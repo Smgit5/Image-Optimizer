@@ -1,0 +1,393 @@
+:root {
+    --primary-color: #4285F4;
+    --primary-hover-color: #357ae8;
+
+    --background-color: #f8f9fa;
+    --card-background-color: #ffffff;
+
+    --text-color: #3c4043;
+    --border-color: #dadce0;
+
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    --success-color: #34a853;
+    --error-color: #ea4335;
+
+    /* Dark Theme */
+    --dark-bg-color: #202124;
+    --dark-card-bg-color: #303134;
+    --dark-text-color: #e8eaed;
+    --dark-border-color: #5f6368;
+    --dark-shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Base ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+.card,
+.info-section,
+.button,
+.drop-area,
+input,
+select {
+    transition: all 0.25s ease;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background: var(--background-color);
+    color: var(--text-color);
+
+    display: flex;
+    justify-content: center;
+
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ---------- Header ---------- */
+
+header {
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+/* ---------- Theme Toggle ---------- */
+
+#theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+/* ---------- Cards ---------- */
+
+.card,
+.info-section {
+    background: var(--card-background-color);
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 4px var(--shadow-color);
+
+    padding: 25px;
+}
+
+/* ---------- Upload Area ---------- */
+
+.upload-section {
+    margin-bottom: 25px;
+}
+
+.drop-area {
+    border: 2px dashed var(--border-color);
+
+    border-radius: 8px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.drop-area.highlight {
+    background: #e8f0fe;
+    border-color: var(--primary-color);
+}
+
+.drop-area p {
+    margin: 8px 0;
+}
+
+/* Hide native file picker */
+#image-input {
+    display: none;
+}
+
+.privacy-note {
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-size: 0.9rem;
+    color: #5f6368;
+}
+
+/* ---------- Controls ---------- */
+
+.controls-section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group select,
+.form-group input {
+    padding: 10px 12px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+
+    font-size: 1rem;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    background: var(--border-color);
+    color: var(--text-color);
+}
+
+.button:hover {
+    opacity: 0.95;
+}
+
+.button.primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.button.primary:hover {
+    background: var(--primary-hover-color);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ---------- Preview ---------- */
+
+.preview-section {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.image-preview {
+    flex: 1;
+    min-width: 280px;
+
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 250px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+
+    margin-top: 10px;
+
+    object-fit: contain;
+}
+
+.image-preview p {
+    margin-top: 10px;
+}
+
+/* ---------- Results ---------- */
+
+.results-section {
+    text-align: center;
+}
+
+#status-message {
+    min-height: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#status-message.success {
+    color: var(--success-color);
+}
+
+#status-message.error {
+    color: var(--error-color);
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item:last-child {
+    margin-bottom: 0;
+}
+
+.faq-item p {
+    line-height: 1.6;
+}
+
+.info-section ul {
+    padding-left: 20px;
+}
+
+.info-section li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    text-align: center;
+
+    color: #777;
+
+    padding: 20px 0;
+}
+
+/* ---------- Dark Theme ---------- */
+
+body.dark-theme {
+    background: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-theme .card,
+body.dark-theme .info-section {
+    background: var(--dark-card-bg-color);
+    box-shadow: 0 2px 4px var(--dark-shadow-color);
+}
+
+body.dark-theme .drop-area {
+    border-color: var(--dark-border-color);
+}
+
+body.dark-theme .drop-area.highlight {
+    background: rgba(66, 133, 244, 0.15);
+}
+
+body.dark-theme .button:not(.primary) {
+    background: var(--dark-border-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-theme .form-group select,
+body.dark-theme .form-group input {
+    background: var(--dark-card-bg-color);
+    color: var(--dark-text-color);
+    border-color: var(--dark-border-color);
+}
+
+body.dark-theme .image-preview img {
+    border-color: var(--dark-border-color);
+}
+
+body.dark-theme .privacy-note {
+    color: #bdc1c6;
+}
+
+body.dark-theme footer {
+    color: #bdc1c6;
+}
+
+body.dark-theme h2 {
+    border-bottom-color: var(--dark-border-color);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        padding-right: 80px;
+    }
+
+    #theme-toggle {
+        top: -5px;
+        right: 0;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .card,
+    .info-section {
+        padding: 18px;
+    }
+
+    .image-preview {
+        min-width: 100%;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
