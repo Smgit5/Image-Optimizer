@@ -118,14 +118,15 @@ h3 {
 
 .drop-area {
     border: 2px dashed var(--border-color);
-
     border-radius: 8px;
-
     padding: 30px;
-
     text-align: center;
-
     cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
 }
 
 .drop-area.highlight {
@@ -134,7 +135,7 @@ h3 {
 }
 
 .drop-area p {
-    margin: 8px 0;
+    margin: 0;
 }
 
 /* Hide native file picker */
@@ -142,11 +143,13 @@ h3 {
     display: none;
 }
 
+.drop-area .button {
+    margin-top: 4px;
+}
+
 .privacy-note {
     margin-top: 15px;
-
     text-align: center;
-
     font-size: 0.9rem;
     color: #5f6368;
 }
@@ -191,19 +194,16 @@ h3 {
 /* ---------- Buttons ---------- */
 
 .button {
+    display: inline-block;
     border: none;
-
     padding: 12px 18px;
-
     border-radius: 6px;
-
     cursor: pointer;
-
     font-size: 1rem;
     font-weight: 600;
-
     background: var(--border-color);
     color: var(--text-color);
+    text-decoration: none;
 }
 
 .button:hover {
@@ -248,8 +248,15 @@ h3 {
     border-radius: 6px;
 
     margin-top: 10px;
+    padding: 8px;
+
+    background: white;
 
     object-fit: contain;
+}
+
+body.dark-theme .image-preview img {
+    background: #202124;
 }
 
 .image-preview p {
@@ -297,6 +304,14 @@ h3 {
 .info-section li {
     margin-bottom: 10px;
     line-height: 1.6;
+}
+
+.faq-item h3 {
+    margin-bottom: 8px;
+}
+
+.faq-item p {
+    margin-top: 0;
 }
 
 /* ---------- Footer ---------- */
@@ -358,6 +373,15 @@ body.dark-theme h2 {
     border-bottom-color: var(--dark-border-color);
 }
 
+#optimize-button {
+    align-self: flex-start;
+}
+
+.drop-area .button {
+    margin-top: 4px;
+    user-select: none;
+}
+
 /* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
@@ -387,7 +411,9 @@ body.dark-theme h2 {
         min-width: 100%;
     }
 
-    .button {
+
+    #optimize-button {
         width: 100%;
     }
 }
+
