@@ -66,7 +66,7 @@ body {
 header {
     text-align: center;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -94,6 +94,7 @@ h3 {
     border-radius: 20px;
     padding: 8px 16px;
     margin-top: 12px;
+    margin-left: auto;
 }
 
 /* ---------- Cards ---------- */
