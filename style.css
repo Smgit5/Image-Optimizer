@@ -66,7 +66,6 @@ body {
 header {
     text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -403,7 +402,7 @@ body.dark-theme h2 {
     #theme-toggle {
         padding: 6px 12px;
         font-size: 0.85rem;
-        margin-top: 0;
+        margin: 0px;
     }
 
     .card,
