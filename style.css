@@ -65,7 +65,9 @@ body {
 
 header {
     text-align: center;
-    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 h1 {
@@ -89,12 +91,9 @@ h3 {
 /* ---------- Theme Toggle ---------- */
 
 #theme-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-
     border-radius: 20px;
     padding: 8px 16px;
+    margin-top: 12px;
 }
 
 /* ---------- Cards ---------- */
@@ -390,16 +389,20 @@ body.dark-theme h2 {
         padding: 12px;
     }
 
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
     h1 {
-        font-size: 1.8rem;
-        padding-right: 80px;
+        font-size: 1.5rem;
+        margin: 0;
     }
 
     #theme-toggle {
-        top: -5px;
-        right: 0;
         padding: 6px 12px;
         font-size: 0.85rem;
+        margin-top: 0;
     }
 
     .card,
