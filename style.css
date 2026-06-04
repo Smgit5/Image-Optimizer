@@ -110,6 +110,10 @@ h3 {
 }
 
 /* ---------- Upload Area ---------- */
+#file-support-note {
+    font-size: 0.9rem;
+    color: #aab3bd;
+}
 
 .upload-section {
     margin-bottom: 25px;
@@ -402,6 +406,10 @@ body.dark-theme h2 {
         margin: 0;
     }
 
+    #file-support-note {
+        font-size: 0.85rem;
+    }
+
     #theme-toggle {
         padding: 6px 12px;
         font-size: 0.85rem;
@@ -420,6 +428,10 @@ body.dark-theme h2 {
 
     #optimize-button {
         width: 100%;
+    }
+
+    .container {
+        margin-top: 10px;
     }
 }
 
