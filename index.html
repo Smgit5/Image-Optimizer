@@ -62,9 +62,15 @@
                     <input type="number" id="custom-kb" min="1" value="50">
                 </div>
 
-                <button id="optimize-button" class="button primary">
-                    Optimize Image
-                </button>
+                <div class="control-actions">
+                    <button id="optimize-button" class="button primary">
+                        Optimize Image
+                    </button>
+
+                    <button id="remove-button" class="button danger" style="display:none;">
+                        Remove Image
+                    </button>
+                </div>
 
             </div>
 
@@ -72,7 +78,7 @@
             <div class="preview-section">
 
                 <div class="image-preview">
-                    <h3>Original Image</h3>
+                    <h3 id="original-title" style="display:none;">Original Image</h3>
 
                     <img id="original-preview" alt="Original Image Preview" style="display:none;">
 
@@ -80,7 +86,7 @@
                 </div>
 
                 <div class="image-preview">
-                    <h3>Compressed Image</h3>
+                    <h3 id="compressed-title" style="display:none;">Compressed Image</h3>
 
                     <img id="compressed-preview" alt="Compressed Image Preview" style="display:none;">
 

@@ -2,12 +2,15 @@ const dropArea = document.getElementById('drop-area');
 const imageInput = document.getElementById('image-input');
 const optimizeButton = document.getElementById('optimize-button');
 const downloadButton = document.getElementById('download-button');
+const removeButton = document.getElementById('remove-button');
 const targetSizeSelect = document.getElementById('target-size');
 const customKBInput = document.getElementById('custom-kb');
 const customTargetInputDiv = document.querySelector('.custom-target-input');
 
 const originalPreview = document.getElementById('original-preview');
 const compressedPreview = document.getElementById('compressed-preview');
+const originalTitle = document.getElementById('original-title');
+const compressedTitle = document.getElementById('compressed-title');
 const originalSizeText = document.getElementById('original-size');
 const compressedSizeText = document.getElementById('compressed-size');
 const statusMessage = document.getElementById('status-message');
@@ -133,11 +136,28 @@ function resetResults() {
     compressedBlob = null;
 
     compressedPreview.style.display = "none";
+    compressedTitle.style.display = "none";
+    compressedPreview.removeAttribute("src");
     compressedSizeText.textContent = "";
 
     statusMessage.textContent = "";
+    statusMessage.className = "";
 
     downloadButton.style.display = "none";
+}
+
+function removeImage() {
+    currentFile = null;
+
+    resetResults();
+
+    originalPreview.style.display = "none";
+    originalTitle.style.display = "none";
+    originalPreview.removeAttribute("src");
+    originalSizeText.textContent = "";
+    imageInput.value = "";
+    optimizeButton.disabled = true;
+    removeButton.style.display = "none";
 }
 
 function setFile(file) {
@@ -146,11 +166,13 @@ function setFile(file) {
     resetResults();
 
     showPreview(originalPreview, file);
+    originalTitle.style.display = "block";
 
     originalSizeText.textContent =
         "Original Size: " + formatBytes(file.size);
 
     optimizeButton.disabled = false;
+    removeButton.style.display = "inline-block";
 }
 
 /* ===========================
@@ -272,6 +294,7 @@ optimizeButton.addEventListener("click", async () => {
             compressedPreview,
             compressedBlob
         );
+        compressedTitle.style.display = "block";
 
         compressedSizeText.textContent =
             "Compressed Size: " +
@@ -325,6 +348,12 @@ downloadButton.addEventListener("click", () => {
 
     URL.revokeObjectURL(url);
 });
+
+/* ===========================
+   REMOVE IMAGE
+=========================== */
+
+removeButton.addEventListener("click", removeImage);
 
 /* ===========================
    THEME TOGGLE
